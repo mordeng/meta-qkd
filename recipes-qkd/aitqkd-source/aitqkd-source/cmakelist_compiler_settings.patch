@@ -1,0 +1,88 @@
+From 38541a37d4878ce76eb633543e06b08bc0fd8368 Mon Sep 17 00:00:00 2001
+From: lukas <lukas.plazovnik@gmail.com>
+Date: Fri, 17 Jul 2015 12:20:56 +0200
+Subject: [PATCH] :
+
+---
+ CMakeLists.txt | 43 ++++++++++++++++++++++++++++---------------
+ 1 file changed, 28 insertions(+), 15 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6bae643..c1dea9a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -68,8 +68,8 @@ option(RIGID_COMPILE_MODE "enable rigid paranoid compile mode" on)
+ if (RIGID_COMPILE_MODE)
+     if (CMAKE_COMPILER_IS_GNUCC)
+         message(STATUS "rigid paranoid compile mode enabled")
+-        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror")
+-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
++        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
++        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+     endif (CMAKE_COMPILER_IS_GNUCC)
+ endif (RIGID_COMPILE_MODE)
+ 
+@@ -328,10 +328,14 @@ endif (NOT QWT_FOUND)
+ 
+ 
+ # Doxygen
+-find_package(Doxygen)
+-if (DOXYGEN_FOUND STREQUAL "NO")
+-    message(FATAL_ERROR "Doxygen not found. Please get a copy http://www.doxygen.org")
+-endif (DOXYGEN_FOUND STREQUAL "NO")
++
++#find_package(Doxygen)
++
++#if (DOXYGEN_FOUND STREQUAL "NO")
++
++#    message(FATAL_ERROR "Doxygen not found. Please get a copy http://www.doxygen.org")
++
++#endif (DOXYGEN_FOUND STREQUAL "NO")
+ 
+ 
+ # xxd
+@@ -350,23 +354,32 @@ endif(DOC_HANDBOOK OR DOC_SIMULATOR)
+     
+ 
+ # prepare doxygen configuration file
+-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
++
++#configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+ 
+ # add doxygen as target
+-add_custom_target(doxygen ALL
+-    ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
+-    COMMENT "Doxygen running ...")
++
++#add_custom_target(doxygen ALL
++   
++# ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
++  
++# COMMENT "Doxygen running ...")
+ 
+ # cleanup $build/api-doc on "make clean"
+-set_property(DIRECTORY APPEND PROPERTY ADDITIONAL_MAKE_CLEAN_FILES api-doc)
++
++#set_property(DIRECTORY APPEND PROPERTY ADDITIONAL_MAKE_CLEAN_FILES api-doc)
+ 
+ # add doxygen as dependency to doc-target
+-add_custom_target(doc)
+-add_dependencies(doc doxygen)
++
++#add_custom_target(doc)
++
++#add_dependencies(doc doxygen)
+ 
+ # install HTML API documentation and manual pages
+-set(DOC_PATH "share/doc/${CPACK_PACKAGE_NAME}")
+-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/html DESTINATION ${DOC_PATH}/qkd COMPONENT doc)
++
++#set(DOC_PATH "share/doc/${CPACK_PACKAGE_NAME}")
++
++#install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/html DESTINATION ${DOC_PATH}/qkd COMPONENT doc)
+ 
+ 
+ # ------------------------------------------------------------
+-- 
+2.1.4
+

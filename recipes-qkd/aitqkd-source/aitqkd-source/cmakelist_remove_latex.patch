@@ -1,0 +1,61 @@
+commit a4f261e5536155cc882df01f1e9cddd67fbb4d04
+Author: lukas <lukas.plazovnik@gmail.com>
+Date:   Thu Jul 23 11:07:05 2015 +0200
+
+    latex
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c1dea9a..7a129c7 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -136,21 +136,21 @@ endif (CMAKE_COMPILER_IS_GNUCC)
+ 
+ 
+ # build the handbook
+-option(DOC_HANDBOOK "create AIT QKD Software Handbook PDF" on)
+-if (DOC_HANDBOOK)
+-    message(STATUS "building handbook")
+-else (DOC_HANDBOOK)
+-    message(STATUS "not building handbook (turn DOC_HANDBOOK option on, if you want to build the handbook)")
+-endif (DOC_HANDBOOK)
++#option(DOC_HANDBOOK "create AIT QKD Software Handbook PDF" on)
++#if (DOC_HANDBOOK)
++ #   message(STATUS "building handbook")
++#else (DOC_HANDBOOK)
++#    message(STATUS "not building handbook (turn DOC_HANDBOOK option on, if you want to build the #handbook)")
++#endif (DOC_HANDBOOK)
+ 
+ 
+ # build the simulator docu
+-option(DOC_SIMULATOR "create AIT QKD Simulator Documentation PDF" on)
+-if (DOC_SIMULATOR)
+-    message(STATUS "building simulator documentation")
+-else (DOC_SIMULATOR)
+-    message(STATUS "not building simulator documentation (turn DOC_SIMULATOR option on, if you want to build the simulator documentation)")
+-endif (DOC_SIMULATOR)
++#option(DOC_SIMULATOR "create AIT QKD Simulator Documentation PDF" on)
++#if (DOC_SIMULATOR)
++#    message(STATUS "building simulator documentation")
++#else (DOC_SIMULATOR)
++#    message(STATUS "not building simulator documentation (turn DOC_SIMULATOR option on, if you want #to build the simulator documentation)")
++#endif (DOC_SIMULATOR)
+ 
+ 
+ 
+@@ -346,11 +346,11 @@ endif (XXD-NOTFOUND)
+ 
+ 
+ # search for latex if needed
+-if (DOC_HANDBOOK OR DOC_SIMULATOR)
+-    include(FindLATEX)
+-    message(STATUS "latex compiler: ${LATEX_COMPILER}")
+-    message(STATUS "pdflatex compiler: ${PDFLATEX_COMPILER}")
+-endif(DOC_HANDBOOK OR DOC_SIMULATOR)
++#if (DOC_HANDBOOK OR DOC_SIMULATOR)
++ #   include(FindLATEX)
++ ##   message(STATUS "latex compiler: ${LATEX_COMPILER}")
++ #   message(STATUS "pdflatex compiler: ${PDFLATEX_COMPILER}")
++#endif(DOC_HANDBOOK OR DOC_SIMULATOR)
+     
+ 
+ # prepare doxygen configuration file

@@ -1,0 +1,29 @@
+commit 63b00bd4f15a974af5a856486820eb3ca8e282c8
+Author: lukas <lukas.plazovnik@gmail.com>
+Date:   Fri Jul 24 11:12:51 2015 +0200
+
+    install tests
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7a129c7..2460560 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -74,6 +74,7 @@ if (RIGID_COMPILE_MODE)
+ endif (RIGID_COMPILE_MODE)
+ 
+ 
++
+ # set compile flags
+ if (CMAKE_COMPILER_IS_GNUCC)
+ 
+@@ -406,6 +407,10 @@ add_subdirectory(test)
+ 
+ install(DIRECTORY etc/q3p etc/qkd DESTINATION /etc)
+ 
++# ------------------------------------------------------------
++# install test
++
++install(DIRECTORY ${BUILD_DIR}test/bin/modules DESTINATION /home)
+ 
+ # ------------------------------------------------------------
+ # packaging
